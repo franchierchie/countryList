@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 import { CountryContext } from './';
-import { countryReducer } from '../CountryReducer.js';
+import { countryReducer } from '../countryReducer';
 
 const init = () => {
   const countryList =   JSON.parse( localStorage.getItem('countryList') );
