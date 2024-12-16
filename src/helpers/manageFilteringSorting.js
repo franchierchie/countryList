@@ -34,7 +34,7 @@ export const manageFilteringSorting = ( countryListStorage, action ) => {
   }
 
   // Sorting
-  const sortedCountries = filteredCountries.sort((a, b) => {
+  const sortedCountries = filteredCountries?.sort((a, b) => {
     switch (sortBy) {
       case 'population' || "population":
         return b.population - a.population;
