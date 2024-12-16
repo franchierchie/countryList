@@ -6,7 +6,7 @@ import { getCountries } from './helpers';
 import { CountryPage, HomePage } from './pages';
 
 export const WorldRanksApp = () => {
-  const { dispatch } = useContext( CountryContext );
+  const { state, dispatch } = useContext( CountryContext );
   const navigate = useNavigate();
   const [error, setError] = useState(null);
 
@@ -56,6 +56,8 @@ export const WorldRanksApp = () => {
 
     fetchCountries();
   }, []);
+
+  if ( state.isLoading ) return <div>Loading...</div>
 
   if ( error ) return <div>Error: { error }</div>
 

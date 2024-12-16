@@ -60,7 +60,7 @@ body {
 }
 
 #root {
-  background-image: url("./hero-image-wr.jpg");
+  background-image: url("/hero-image-wr.jpg");
   background-repeat: no-repeat;
   background-size: 100dvw 45dvh;
   min-height: 100dvh;
@@ -269,7 +269,7 @@ main:is( .home-page ) header {
       &::before {
         top: 0px;
         left: 0px;
-        content: url("./Done_round.svg");
+        content: url("/Done_round.svg");
         position: absolute;
         width: 4px;
         height: 7px;
