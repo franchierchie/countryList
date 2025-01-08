@@ -111,7 +111,7 @@ p {
     left: 0;
     right: 0;
     height: 45vh;
-    background-image: url("./hero-image-wr.jpg");
+    background-image: url("/hero-image-wr.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
