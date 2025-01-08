@@ -24,11 +24,11 @@ export const CountryPage = () => {
   return (
     <div className="page-wrapper">
       <div className="logo-wrapper" onClick={ handleNavClick }>
-        <img src="./Logo.svg" alt="company logo" />
+        <img src="/Logo.svg" alt="company logo" />
       </div>
 
       <button className="back-button" onClick={() => navigate(-1)}>
-        <img src="./Expand_down.svg" alt="back button" />
+        <img src="/Expand_down.svg" alt="back button" />
       </button>
 
       <div className="container country-container">

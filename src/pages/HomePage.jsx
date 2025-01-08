@@ -28,7 +28,7 @@ export const HomePage = () => {
   return (
     <div className="page-wrapper">
       <div className="logo-wrapper" onClick={() => navigate('/')}>
-        <img src="./Logo.svg" alt="company logo" />
+        <img src="/Logo.svg" alt="company logo" />
       </div>
 
       <div className="container home-container">
@@ -39,7 +39,7 @@ export const HomePage = () => {
 
           <form onSubmit={( e ) => { e.preventDefault() } }>
             <label htmlFor="searchInput">
-              <img src="./Search.svg" alt="Search bar" />
+              <img src="/Search.svg" alt="Search bar" />
 
               <input
                 type="search"
