@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Fonts */
+  --font: "Be Vietnam Pro", serif;
+
+  /* Font - sizes */
+  --font-size-h1: 2rem;
+  --font-size-body-1: 1rem;
+  --font-size-body-2: .875rem;
+  --font-size-caption: .75rem;
+
+  /* Font - weight */
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-medium: 500;
+
+  /* Colors */
+  --color-black: #1B1D1F;
+  --color-dark-gray: #282B30;
+  --color-gray: #6C727F;
+  --color-light-gray: #D2D5DA;
+  --color-blue: #4E80EE;
+
+  /* .container */
+  --container-border-radius: 16px;
+  --container-padding-inline: 48px;
+  --container-padding-block: 32px;
+
+  /* box-shadow */
+  --shadow: rgba(27, 29, 31, 0.2) 0px 2px 8px 0px;
+  --shadow-2: rgba(27, 29, 31, 0.05) 0px 0px 0px 1px;
+}
+
+/* makes box-sizing simpler */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* remove default spancing */
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* dark mode user-agents-styles */
+
+html {
+  hanging-punctuation: first last;
+  color-scheme: dark light;
+  font-family: var(--font);
+}
+
+/* min body height */
+
+body {
+  min-height: 100svh;
+  background-color: var(--color-black);
+}
+
+/* responsive images */
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p {
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :has(:target) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+  }
+}
+
+
+
+.title {
+  font-size: 5rem;
+}
+
+.subtitle {
+  font-size: 3rem;
+}
+
+
+
+
+#root {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 45vh;
+    background-image: url("./hero-image-wr.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+
+
+/* WorldRanksApp - main page */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+  padding-block: 10rem 3rem;
+  padding-inline: 3rem;
+
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+.page-wrapper .logo-wrapper {
+  margin-inline: auto;
+
+  img {
+    width: 15rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+
+.page-wrapper .container {
+  background-color: var(--color-black);
+  border: 1px solid var(--color-dark-gray);
+  border-radius: var(--container-border-radius);
+  padding: var(--container-padding-block) var(--container-padding-inline);
+  box-shadow: var(--shadow);
+  min-width: 30rem;
+}
+
+
+
+.page-wrapper .home-container header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block-end: 32px;
+
+  .results {
+    color: var(--color-gray);
+    font-size: var(--font-size-body-1);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: .5px
+  }
+
+  form label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--color-dark-gray);
+    padding: 1rem .75rem;
+    border-radius: var(--container-border-radius);
+
+    input {
+      background-color: transparent;
+      border: 0;
+      outline: 0;
+      letter-spacing: .5px;
+      min-width: 20rem;
+      box-shadow: var(--shadow);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus-within {
+      outline: 3px solid white;
+    }
+  }
+}
+
+
+
+.page-wrapper .home-container main {
+  display: grid;
+  grid-template-columns: 22.5% auto;
+  column-gap: 2rem;
+}
+
+main aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+main aside .search-filter {
+
+  .search-filter__title {
+    color: var(--color-gray);
+    font-size: var(--font-size-body-2);
+    letter-spacing: .5px;
+    padding-block: .5rem;
+  }
+
+  select {
+    border: 3px solid var(--color-dark-gray);
+    border-radius: calc( var(--container-border-radius) - 4px );
+    background-color: transparent;
+    padding: 12px 16px;
+    width: 100%;
+    letter-spacing: .5px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &>option {
+      background-color: var(--color-black);
+      color: var(--color-light-gray);
+    }
+  }
+}
+
+main aside .search-filter .region-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-inline-end: 2rem;
+  
+  label {
+    padding: .8rem 1rem;
+    border-radius: var(--container-border-radius);
+    transition: background-color .1s;
+    letter-spacing: .5px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:has(input[type="checkbox"]:checked) {
+      color: white;
+      background-color: var(--color-dark-gray);
+    }
+
+    input {
+      display: none;
+    }
+  }
+}
+
+main aside .search-filter .status-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+
+  label {
+    position: relative;
+    display: inherit;
+    align-content: center;
+    gap: .75rem;
+    letter-spacing: .5px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    input {
+      --checkbox-diameter: 25px;
+      --checkbox-border-radius: 5px;
+      --checkbox-width: 2px;
+
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: var(--checkbox-diameter);
+      height: var(--checkbox-diameter);
+      border-radius: var(--checkbox-border-radius);
+      background-color: transparent;
+      border: var(--checkbox-width) solid var(--color-gray);
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+      cursor: pointer;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-box-shadow: 0 0 0 calc(var(--checkbox-diameter) / 2.5) var(--color-gray);
+        box-shadow: 0 0 0 calc(var(--checkbox-diameter) / 2.5) var(--color-blue);
+        border-radius: inherit;
+        opacity: 0;
+      }
+
+      &::before {
+        top: 0px;
+        left: 0px;
+        content: url("./Done_round.svg");
+        position: absolute;
+        width: 4px;
+        height: 7px;
+        opacity: 0;
+      }
+
+      &:hover {
+        border-color: var(--color-blue);
+      }
+      
+      &:checked {
+        background: var(--color-blue);
+        border-color: var(--color-blue);
+      }
+      
+      &:checked::before {
+        opacity: 1;
+      }
+      
+      &:active:not(:checked)::after {
+        box-shadow: none;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+
+main .table-wrapper {
+  display: block;
+  overflow-x: auto;
+}
+
+main .table-wrapper table {
+  --flag-width: 96px;
+  --flag-height: 67.2px;
+
+  width: 100%;
+  border-collapse: collapse;
+  background-color: transparent;
+  color: var(--color-light-gray);
+  font-family: inherit;
+
+  thead {
+    border-bottom: 3px solid var(--color-dark-gray);
+  }
+
+  tbody tr :hover {
+    cursor: pointer;
+  }
+
+  th, td {
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: .5px;
+    padding: .75rem;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:nth-child(1) {
+      width: var(--flag-width);
+      height: var(--flag-height);
+      overflow: hidden;
+    }   
+  }
+
+  td {
+    &:nth-child(1) {
+      display: block;
+    }    
+  }
+
+  th {
+    padding-block-end: 1.25rem;
+    font-weight: bold;
+    color: var(--color-gray);
+  }
+
+  img {
+    height: 100%;
+    border-radius: 4px;
+    margin: auto;
+  }
+}
+
+
+
+/* WorldRanksApp - country page */
+.page-wrapper .country-container {
+  width: 100%;
+  max-width: 60rem;
+  margin-inline: auto;
+  padding-inline: 0;
+
+/*
+  padding: var(--container-padding-block) var(--container-padding-inline)
+  padding: 32px 48px
+*/
+}
+
+.page-wrapper .country-container .main-info-container {
+
+  .image-wrapper {
+    max-width: clamp(15rem, 50%, 25rem);
+    border-radius: var(--container-border-radius);
+    overflow: hidden;
+    margin-inline: auto;
+    margin-block-start: -6.5rem;
+  }
+
+  .name-container {
+    text-align: center;
+    padding-block: 2.5rem 3.5rem;
+
+    h1 {
+      font-size: var(--font-size-h1);
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 1px;
+      margin-block-end: .5rem;
+    }
+
+    h2 {
+      font-size: calc( var(--font-size-body-1) + 4px );
+      letter-spacing: .5px;
+    }
+  }
+
+  .info-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-block-end: 2.5rem;
+
+    .info-tag {
+      --tag-height: 3rem;
+
+      background-color: var(--color-dark-gray);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .5rem;
+      border-radius: var(--container-border-radius);
+      box-shadow: var(--shadow-2);
+
+      .vr {
+        display: block;
+        width: 1.5px;
+        height: calc(var( --tag-height) - .25rem );
+        background-color: var(--color-black);
+      }
+    }
+
+    .info-tag__title,
+    .info-tag__data {
+      padding: 1rem 1rem;
+      letter-spacing: .5px;
+    }
+  }
+}
+
+.page-wrapper .country-container main .info-row-container .info-row .info-row__title,
+.page-wrapper .country-container .info-container .info-container__title {
+  color: var(--color-gray);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: .5px;
+}
+
+.page-wrapper .country-container main {
+  
+  .info-row-container .info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-block: 1px solid var(--color-dark-gray);
+  }
+}
+
+.page-wrapper .country-container .info-container {
+  padding: 2rem;
+
+  .info-container__title {
+    margin-block-end: 1.5rem;
+  }
+
+  .neighbouring-countries-contianer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .neighbouring-countries-contianer .neighbouring-countries-card {
+    max-width: 7rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .flag-wrapper {
+      width: 7rem;
+      overflow: hidden;
+    }
+
+    .flag-wrapper img {
+      border-radius: calc( var(--container-border-radius) - 10px );
+      height: 100%;
+    }
+
+    p {
+      padding-block-start: .5rem;
+    }
+  }
+}
+
+
+
+.back-button {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  background-color: var(--color-dark-gray);
+  border: 0;
+  outline: 0;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  img {
+    width: 2rem;
+    rotate: 90deg;
+  }
+}
+
+
+
+/* MQ */
+@media (width <= 768px) {
+  .page-wrapper {
+    padding-inline: 0;
+  }
+
+  .page-wrapper .container {
+    border-radius: 0;
+  }
+
+  .page-wrapper .home-container main {
+    display: grid;
+    grid-template-columns: auto;
+  }
+}
